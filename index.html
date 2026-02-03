@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead On Purpose | Gavin Keeley</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #f5d000;
+            --yellow-light: #fff06a;
+            --yellow-dark: #d4b300;
+            --black: #0a0a0a;
+            --off-black: #1a1a1a;
+            --white: #ffffff;
+            --grey: #666666;
+            --light-grey: #f8f8f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .serif {
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.25rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--black);
+            z-index: 1000;
+            border-bottom: 3px solid var(--yellow);
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        .nav-cta {
+            background: var(--yellow);
+            color: var(--black) !important;
+            padding: 0.6rem 1.5rem;
+        }
+
+        .nav-cta:hover {
+            background: var(--yellow-light);
+            color: var(--black) !important;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--off-black);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-yellow {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .btn-yellow:hover {
+            background: var(--yellow-light);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 4rem 4rem;
+            background: var(--yellow);
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--off-black);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.15s forwards;
+        }
+
+        .hero-subtitle {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--off-black);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
+        }
+
+        .hero-philosophy {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--black);
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            border-top: 2px solid var(--black);
+            border-bottom: 2px solid var(--black);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.45s forwards;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.6s forwards;
+        }
+
+        /* Book Cover in Hero */
+        .hero-book {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero-book img {
+            max-width: 340px;
+            width: 100%;
+            height: auto;
+            box-shadow: 
+                -15px 15px 40px rgba(0,0,0,0.25),
+                -5px 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-book img:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                -20px 25px 50px rgba(0,0,0,0.3),
+                -8px 8px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Quote Banner */
+        .quote-banner {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 4rem;
+            text-align: center;
+        }
+
+        .quote-banner blockquote {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .quote-banner .highlight {
+            color: var(--yellow);
+        }
+
+        /* Manifesto Section */
+        .manifesto {
+            background: var(--black);
+            color: var(--white);
+            padding: 6rem 4rem;
+        }
+
+        .manifesto-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .manifesto h2 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--yellow);
+            margin-bottom: 2.5rem;
+        }
+
+        .manifesto-statement {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            line-height: 1.4;
+            margin-bottom: 3rem;
+            text-transform: none;
+        }
+
+        .manifesto-statement em {
+            color: var(--yellow);
+            font-style: normal;
+        }
+
+        .manifesto-values {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .value-item {
+            text-align: center;
+        }
+
+        .value-word {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .value-def {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-eyebrow {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            background: var(--black);
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.15rem;
+            color: var(--grey);
+            font-style: italic;
+        }
+
+        /* Core Principles Grid */
+        .principles-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .principle-card {
+            background: var(--white);
+            border: 2px solid var(--light-grey);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .principle-card:hover {
+            border-color: var(--yellow);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .principle-card:hover::before {
+            width: 100%;
+        }
+
+        .principle-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--yellow);
+            background: var(--black);
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .principle-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-transform: none;
+        }
+
+        .principle-card p {
+            color: var(--grey);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Book Structure Section */
+        .structure-section {
+            background: var(--light-grey);
+        }
+
+        .parts-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .part-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            padding: 1.5rem 2rem;
+            background: var(--white);
+            border-left: 4px solid var(--yellow);
+            transition: all 0.2s ease;
+        }
+
+        .part-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .part-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        .part-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            text-transform: none;
+        }
+
+        .part-content p {
+            color: var(--grey);
+            font-size: 0.95rem;
+        }
+
+        /* Books Section */
+        .books-section {
+            background: var(--white);
+        }
+
+        .book-showcase {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+            padding: 3rem;
+            background: var(--light-grey);
+        }
+
+        .book-showcase.reverse {
+            direction: rtl;
+        }
+
+        .book-showcase.reverse > * {
+            direction: ltr;
+        }
+
+        .book-showcase .book-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book-showcase .book-image img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            box-shadow: 
+                -10px 10px 30px rgba(0,0,0,0.2),
+                -3px 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-showcase .book-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                -12px 15px 35px rgba(0,0,0,0.25),
+                -5px 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .book-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: none;
+        }
+
+        .book-subtitle {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            color: var(--grey);
+            margin-bottom: 1.5rem;
+        }
+
+        .book-details > p {
+            color: var(--grey);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .book-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .book-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--off-black);
+        }
+
+        .book-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+            font-weight: bold;
+        }
+
+        .buy-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .buy-btn {
+            padding: 0.8rem 1.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn.amazon {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .buy-btn.amazon:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .buy-btn.google {
+            background: var(--white);
+            color: var(--black);
+            border: 2px solid var(--black);
+        }
+
+        .buy-btn.google:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Workshop Section */
+        .workshop-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 6rem 4rem;
+        }
+
+        .workshop-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .workshop-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .workshop-badge {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .workshop-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workshop-header p {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .workshop-details {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .workshop-detail {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .workshop-detail .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .workshop-detail .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.3rem;
+        }
+
+        .workshop-detail .value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .workshop-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .workshop-feature {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .workshop-feature .check {
+            color: var(--yellow);
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .workshop-feature p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .workshop-feature strong {
+            color: var(--white);
+        }
+
+        .workshop-cta {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .workshop-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .workshop-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Author Section */
+        .author-section {
+            padding: 6rem 4rem;
+            background: var(--light-grey);
+        }
+
+        .author-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .author-image {
+            background: var(--yellow);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--black);
+            position: relative;
+        }
+
+        .author-credentials {
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 1.2rem;
+            font-size: 0.75rem;
+            max-width: 200px;
+        }
+
+        .author-credentials span {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            color: var(--yellow);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-bio h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: none;
+        }
+
+        .author-bio .title {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            color: var(--grey);
+            margin-bottom: 1.5rem;
+        }
+
+        .author-bio p {
+            color: var(--grey);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .author-quote {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--off-black);
+            border-left: 4px solid var(--yellow);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .author-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--grey);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--yellow);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--grey);
+            margin-top: 0.3rem;
+        }
+
+        /* Quotes Section */
+        .quotes-section {
+            background: var(--off-black);
+            color: var(--white);
+            padding: 5rem 4rem;
+        }
+
+        .quotes-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quote-block {
+            text-align: center;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .quote-block:last-child {
+            border-bottom: none;
+        }
+
+        .quote-text {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .quote-attr {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: var(--yellow);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--yellow);
+            padding: 6rem 4rem;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            color: var(--off-black);
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hashtag {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-top: 2.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-brand h3 span {
+            color: var(--yellow);
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: block;
+            padding: 0.4rem 0;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .hero {
+                padding: 6rem 2rem 3rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .hero-book img {
+                max-width: 280px;
+            }
+
+            .book-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .book-showcase.reverse {
+                direction: ltr;
+            }
+
+            .book-showcase .book-image {
+                max-width: 220px;
+                margin: 0 auto;
+            }
+
+            .author-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .author-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .author-credentials {
+                position: static;
+                margin-top: 1rem;
+                max-width: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .workshop-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .workshop-features {
+                grid-template-columns: 1fr;
+            }
+
+            .author-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .part-item {
+                grid-template-columns: 60px 1fr;
+                gap: 1rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Lead On <span>Purpose</span></a>
+        <ul class="nav-links">
+            <li><a href="#manifesto">Manifesto</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#workshop">Workshop</a></li>
+            <li><a href="#author">About</a></li>
+            <li><a href="#cta" class="nav-cta">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <p class="hero-eyebrow">A New Leadership Philosophy</p>
+                <h1>Lead On Purpose</h1>
+                <p class="hero-subtitle">Four decades of hard-won wisdom distilled into practices for leaders who choose knowing over believing, evidence over dogma, and evolution over expansion.</p>
+                <p class="hero-philosophy">Evidence First. Values Always. Dogma Never.</p>
+                <div class="cta-group">
+                    <a href="#books" class="btn btn-primary">Get the Books</a>
+                    <a href="#workshop" class="btn btn-secondary">Join a Workshop</a>
+                </div>
+            </div>
+            <div class="hero-book">
+                <img src="book-cover.png" alt="Lead On Purpose by Gavin Keeley">
+            </div>
+        </div>
+    </section>
+
+    <div class="quote-banner">
+        <blockquote>"You are currently experiencing the <span class="highlight">fastest rate of change</span> in your life, but it will be the <span class="highlight">slowest you experience</span> for the rest of your lifetime."<br><br>How prepared do you feel to lead through that?</blockquote>
+    </div>
+
+    <section class="manifesto" id="manifesto">
+        <div class="manifesto-content">
+            <h2>The Manifesto</h2>
+            <p class="manifesto-statement">
+                I choose <em>knowing</em> over believing.<br>
+                The only oath of allegiance I swear is to the <em>truth</em>.<br>
+                And the truth is based on what we <em>currently know</em>.
+            </p>
+            <div class="manifesto-values">
+                <div class="value-item">
+                    <div class="value-word">Curiosity</div>
+                    <div class="value-def">Compulsion to seek truth</div>
+                </div>
+                <div class="value-item">
+                    <div class="value-word">Humility</div>
+                    <div class="value-def">Strong views, loosely held</div>
+                </div>
+                <div class="value-item">
+                    <div class="value-word">Action</div>
+                    <div class="value-def">Explore and validate</div>
+                </div>
+                <div class="value-item">
+                    <div class="value-word">Care</div>
+                    <div class="value-def">Consider lasting impact</div>
+                </div>
+                <div class="value-item">
+                    <div class="value-word">Velocity</div>
+                    <div class="value-def">Fast to first</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="principles">
+        <div class="section-header">
+            <span class="section-eyebrow">Core Principles</span>
+            <h2 class="section-title">The Approach</h2>
+            <p class="section-subtitle">Practices for intentional leadership in a chaotic world where the only constant is change.</p>
+        </div>
+        <div class="principles-grid">
+            <div class="principle-card">
+                <div class="principle-number">01</div>
+                <h3>Knowing Over Believing</h3>
+                <p>Knowledge holds provisional conclusions based on evidence. Belief treats conclusions as fixed points around which evidence must be arranged. The difference determines how you respond to new information.</p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">02</div>
+                <h3>The Holy Trinity</h3>
+                <p>Purpose answers why you exist. Values guide how you decide. Vision paints where you're heading. Together, they form the cultural bedrock from which everything else grows.</p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">03</div>
+                <h3>Culture Gives Birth to Strategy</h3>
+                <p>Culture doesn't eat strategy for breakfast. Culture gives birth to strategy. When strategy is aligned and born from culture, they become a unified force that makes scaling inevitable.</p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">04</div>
+                <h3>Second-Order Leadership</h3>
+                <p>First-order leaders are experts with answers. Second-order leaders are coaches who ask better questions. The shift happens when you stop trying to know everything and start trying to understand everyone.</p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">05</div>
+                <h3>Evolution Over Expansion</h3>
+                <p>Growth isn't strategy. It's often a failure of imagination. The question isn't "how do I grow?" The question is "how do I stay relevant to the people I choose to serve?"</p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">06</div>
+                <h3>The Courage to Face Reality</h3>
+                <p>It's a damning observation of our times that speaking truth requires courage. Leaders stand apart by speaking the unspoken truth. Evidence is your armour, your legitimacy, your protection.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section structure-section" id="structure">
+        <div class="section-header">
+            <span class="section-eyebrow">Inside the Book</span>
+            <h2 class="section-title">Six Parts</h2>
+            <p class="section-subtitle">Building from personal awakening to organisational transformation</p>
+        </div>
+        <div class="parts-list">
+            <div class="part-item">
+                <div class="part-number">I</div>
+                <div class="part-content">
+                    <h3>The Awakening</h3>
+                    <p>Challenging everything you think you know about leadership.</p>
+                </div>
+            </div>
+            <div class="part-item">
+                <div class="part-number">II</div>
+                <div class="part-content">
+                    <h3>Knowing vs. Believing</h3>
+                    <p>The evidence-based revolution in leadership.</p>
+                </div>
+            </div>
+            <div class="part-item">
+                <div class="part-number">III</div>
+                <div class="part-content">
+                    <h3>Purpose, Values & Vision</h3>
+                    <p>The holy trinity of organisational clarity.</p>
+                </div>
+            </div>
+            <div class="part-item">
+                <div class="part-number">IV</div>
+                <div class="part-content">
+                    <h3>Culture Eats Strategy</h3>
+                    <p>Building invincible organisational cultures.</p>
+                </div>
+            </div>
+            <div class="part-item">
+                <div class="part-number">V</div>
+                <div class="part-content">
+                    <h3>The Dark Side</h3>
+                    <p>Confronting uncomfortable truths about leadership.</p>
+                </div>
+            </div>
+            <div class="part-item">
+                <div class="part-number">VI</div>
+                <div class="part-content">
+                    <h3>Lead On Purpose</h3>
+                    <p>Practical application and the path forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section books-section" id="books">
+        <div class="section-header">
+            <span class="section-eyebrow">The Books</span>
+            <h2 class="section-title">Your Path to Intentional Leadership</h2>
+            <p class="section-subtitle">Two resources designed to work together: the philosophy and the practice.</p>
+        </div>
+
+        <div class="book-showcase">
+            <div class="book-image">
+                <img src="book-cover.png" alt="Lead On Purpose by Gavin Keeley">
+            </div>
+            <div class="book-details">
+                <h3>Lead On Purpose</h3>
+                <p class="book-subtitle">Intentional Leadership in a World of Chaos</p>
+                <p>This book doesn't just challenge conventional leadership wisdom. It exposes why it was always destined to fail. Drawing on 40 years of leadership across four continents, Gavin Keeley offers a different path: building an invincible culture that replaces dogma with evidence and pretence with competence.</p>
+                <ul class="book-features">
+                    <li>Why classical management theory is obsolete</li>
+                    <li>The five core values of intentional leadership</li>
+                    <li>How to lead when you have days, not years, to respond</li>
+                    <li>Why this applies to solopreneurs and CEOs alike</li>
+                    <li>Evidence-based approaches, not guru platitudes</li>
+                </ul>
+                <div class="buy-links">
+                    <a href="#" class="buy-btn amazon">Amazon</a>
+                    <a href="#" class="buy-btn google">Google Play</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-showcase reverse">
+            <div class="book-image">
+                <img src="playbook-cover.png" alt="Lead On Purpose Leader's Playbook by Gavin Keeley">
+            </div>
+            <div class="book-details">
+                <h3>Leader's Playbook</h3>
+                <p class="book-subtitle">Practical Tools for Intentional Leadership</p>
+                <p>The companion guide that turns philosophy into practice. Five practical approaches explained in narrative form—your reference manual for after you've read the book and attended the workshop. The what, why, and how of each approach, ready for immediate application.</p>
+                <ul class="book-features">
+                    <li>CLEAR approach for effective delegation</li>
+                    <li>LEARN model for better decision-making</li>
+                    <li>COACH approach for developing your people</li>
+                    <li>Practical scenarios and worked examples</li>
+                    <li>Quick reference guides for daily use</li>
+                </ul>
+                <div class="buy-links">
+                    <a href="#" class="buy-btn amazon">Amazon</a>
+                    <a href="#" class="buy-btn google">Google Play</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workshop-section" id="workshop">
+        <div class="workshop-content">
+            <div class="workshop-header">
+                <span class="workshop-badge">Half-Day Workshop</span>
+                <h2>Lead On Purpose Workshop</h2>
+                <p>Stop reading about leadership. Start practicing it. This isn't a lecture—it's hands-on training with the approaches from the book.</p>
+            </div>
+
+            <div class="workshop-details">
+                <div class="workshop-detail">
+                    <div class="icon">⏱️</div>
+                    <div class="label">Duration</div>
+                    <div class="value">3.5 Hours</div>
+                </div>
+                <div class="workshop-detail">
+                    <div class="icon">👥</div>
+                    <div class="label">Group Size</div>
+                    <div class="value">Max 24</div>
+                </div>
+                <div class="workshop-detail">
+                    <div class="icon">📍</div>
+                    <div class="label">Location</div>
+                    <div class="value">Sunshine Coast</div>
+                </div>
+                <div class="workshop-detail">
+                    <div class="icon">📖</div>
+                    <div class="label">Includes</div>
+                    <div class="value">Leader's Playbook</div>
+                </div>
+            </div>
+
+            <div class="workshop-features">
+                <div class="workshop-feature">
+                    <span class="check">✓</span>
+                    <p><strong>CLEAR Approach</strong> — Master the art of delegation that actually works. Know when to direct, coach, or step back entirely.</p>
+                </div>
+                <div class="workshop-feature">
+                    <span class="check">✓</span>
+                    <p><strong>LEARN Model</strong> — Make better decisions faster. A structured approach to judgment when you don't have all the information.</p>
+                </div>
+                <div class="workshop-feature">
+                    <span class="check">✓</span>
+                    <p><strong>COACH Approach</strong> — Develop your people without doing their thinking for them. Build capability, not dependency.</p>
+                </div>
+                <div class="workshop-feature">
+                    <span class="check">✓</span>
+                    <p><strong>Hands-On Practice</strong> — Roughly half the workshop is active practice. Table exercises, paired role-plays, and real scenarios.</p>
+                </div>
+                <div class="workshop-feature">
+                    <span class="check">✓</span>
+                    <p><strong>Your Copy of the Playbook</strong> — Take home the Leader's Playbook as your ongoing reference manual.</p>
+                </div>
+                <div class="workshop-feature">
+                    <span class="check">✓</span>
+                    <p><strong>30-Day Support</strong> — Email access after the workshop for questions as you implement in the real world.</p>
+                </div>
+            </div>
+
+            <div class="workshop-cta">
+                <p class="workshop-price">$297 <span>per participant | GST inclusive</span></p>
+                <a href="#" class="btn btn-yellow">Reserve Your Spot</a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6);">Team booking? Contact us for group rates (4+ participants)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="author-section" id="author">
+        <div class="author-content">
+            <div class="author-image">
+                GK
+                <div class="author-credentials">
+                    <span>Credentials</span>
+                    GAICD · FACS · CP · ACEcD<br>
+                    Pearcey Hall of Fame<br>
+                    ACS Hall of Fame
+                </div>
+            </div>
+            <div class="author-bio">
+                <h3>About Gavin Keeley</h3>
+                <p class="title">Partner, Circle Leadership Global · Adjunct Professor, QUT</p>
+                <p>Gavin Keeley is a Partner at Circle Leadership Global and an Adjunct Professor at Queensland University of Technology, with a personal purpose to achieve what is thought to be impossible.</p>
+                <p>Born in the industrial West Midlands in the United Kingdom, Gavin's career began with a sliding door moment that led him from an aspiring astrophysicist to a pioneering computer scientist leading global transformations of the PC, the internet, Cloud Computing, and AI all years before they were each mainstream. He's held executive roles at Suncorp, Aviva PLC, and founded technology companies across four continents.</p>
+                <p>His philosophy—"constantly curious"—has guided four decades of leadership. From delivering impossible insurance products in 30 days (when years was normal) to leading campaigns that transformed Queensland's digital infrastructure, Gavin has consistently challenged what's possible.</p>
+                <blockquote class="author-quote">"I've spent forty years watching leaders fail in predictable ways—not because they lacked intelligence, but because they were never trained to lead. I wrote this book because I got tired of staying quiet about it."</blockquote>
+                <p>Today, through Circle Leadership, he works to enable 90 million purpose-driven leaders with a vision to create a world where work positively impacts people and the planet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quotes-section">
+        <div class="quotes-content">
+            <div class="quote-block">
+                <p class="quote-text">"When you see your career as only about you, it becomes easy to see others as functions and manipulate them for your success. Leadership is the stewardship of the lives entrusted to you."</p>
+                <p class="quote-attr">— Bob Chapman</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">"It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so."</p>
+                <p class="quote-attr">— Mark Twain</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="cta">
+        <div class="cta-content">
+            <h2>It's Time to Lead Different</h2>
+            <p>The world needs more intentional leaders, not more managers. Leaders who can guide others through uncertainty, not people who pretend certainty exists.</p>
+            <div class="cta-buttons">
+                <a href="#books" class="btn btn-primary">Get the Books</a>
+                <a href="#workshop" class="btn btn-secondary">Join a Workshop</a>
+                <a href="https://www.circleleadership.global" class="btn btn-secondary" target="_blank">Circle Leadership</a>
+            </div>
+            <div class="hashtag">#LEADONPURPOSE</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Lead On <span>Purpose</span></h3>
+                <p>Evidence first. Values always. Dogma never.<br><br>A leadership philosophy for those who choose knowing over believing.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#manifesto">The Manifesto</a></li>
+                    <li><a href="#principles">Core Principles</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#workshop">Workshop</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://gavinkeeley.com" target="_blank">gavinkeeley.com</a></li>
+                    <li><a href="https://www.circleleadership.global" target="_blank">Circle Leadership Global</a></li>
+                    <li><a href="https://www.linkedin.com/in/gavinkeeley/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Gavin Keeley. All rights reserved.</span>
+            <span>Evolving the World of Work™</span>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
