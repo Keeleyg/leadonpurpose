@@ -1006,6 +1006,107 @@
             color: rgba(255,255,255,0.5);
         }
 
+        /* Testimonial Section */
+        .testimonial-section {
+            background: var(--yellow);
+            padding: 5rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-section::before {
+            content: '\201C';
+            position: absolute;
+            top: -0.5rem;
+            left: 2rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 18rem;
+            color: rgba(0,0,0,0.06);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-eyebrow {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--black);
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-text {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--off-black);
+            margin-bottom: 2.5rem;
+        }
+
+        .testimonial-text p {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .testimonial-author-line {
+            width: 40px;
+            height: 3px;
+            background: var(--black);
+            flex-shrink: 0;
+        }
+
+        .testimonial-author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-author-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--black);
+        }
+
+        .testimonial-author-name a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .testimonial-author-name a:hover {
+            border-bottom-color: var(--black);
+        }
+
+        .testimonial-author-role {
+            font-size: 0.9rem;
+            color: var(--off-black);
+            opacity: 0.75;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             nav {
@@ -1315,6 +1416,26 @@
         </div>
     </section>
 
+    <section class="testimonial-section">
+        <div class="testimonial-content">
+            <span class="testimonial-eyebrow">What Leaders Are Saying</span>
+            <div class="testimonial-text">
+                <p>I've had the privilege of working closely with Gavin Keeley, and if there's one thing I know about him, it's this: he doesn't do fluff.</p>
+                <p>Gavin has a rare ability to cut through noise and get to what actually matters. When he helped me distil my purpose, it wasn't a comfortable exercise but it was transformative. The clarity I gained now shapes how I make decisions and how I lead.</p>
+                <p>I have deep respect for how Gavin thinks and how he works. Evidence over ego. Intention over impulse. Culture over performative leadership.</p>
+                <p>If this book reflects the same depth, rigour and practicality I've experienced firsthand, it will be a powerful guide for leaders navigating complexity and change.</p>
+                <p>I, for one, am very much looking forward to reading it.</p>
+            </div>
+            <div class="testimonial-author">
+                <div class="testimonial-author-line"></div>
+                <div class="testimonial-author-info">
+                    <span class="testimonial-author-name"><a href="https://www.linkedin.com/in/fabrizia-roberto" target="_blank" rel="noopener">Fabrizia Roberto</a></span>
+                    <span class="testimonial-author-role">Fractional CMO · Founder, Koverd · Former CMO, Youi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="workshop-section" id="workshop">
         <div class="workshop-content">
             <div class="workshop-header">
@@ -1342,7 +1463,7 @@
                 <div class="workshop-detail">
                     <div class="icon">📖</div>
                     <div class="label">Includes</div>
-                    <div class="value">Both Books</div>
+                    <div class="value">Leader's Playbook</div>
                 </div>
             </div>
 
@@ -1365,7 +1486,7 @@
                 </div>
                 <div class="workshop-feature">
                     <span class="check">✓</span>
-                    <p><strong>Both Books Included</strong> — Take home physical copies of "Lead On Purpose" and the "Leader's Playbook" as your ongoing reference library.</p>
+                    <p><strong>Your Copy of the Playbook</strong> — Take home the Leader's Playbook as your ongoing reference manual.</p>
                 </div>
                 <div class="workshop-feature">
                     <span class="check">✓</span>
@@ -1374,10 +1495,7 @@
             </div>
 
             <div class="workshop-cta">
-                <p class="workshop-price">$297 AUD <span>per participant | GST inclusive</span></p>
-                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 650px; margin-left: auto; margin-right: auto;">This workshop is designed for business builders—whether you're solo, running a team of 20, or a third-generation family business owner. First-time founder or 40-year veteran, if you're building something that needs to evolve in a VUCA world, this is for you.</p>
-                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 650px; margin-left: auto; margin-right: auto;">Fair warning: you'll get far more value from this workshop if you've joined the Business Builders Club and completed the onboarding first. The foundations we build there make the practice here more relevant and immediately useful. Not required, just honest advice about maximizing your $297 investment.</p>
-                <p style="margin-bottom: 2rem; font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 650px; margin-left: auto; margin-right: auto;"><strong>Includes:</strong> Physical copies of both "Lead On Purpose" and the "Leader's Playbook" plus 30-day email support. The price reflects value delivery, not guru enrichment.</p>
+                <p class="workshop-price">$297 <span>per participant | GST inclusive</span></p>
                 <a href="#" class="btn btn-yellow">Reserve Your Spot</a>
                 <p style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6);">Team booking? Contact us for group rates (4+ participants)</p>
             </div>
@@ -1426,8 +1544,8 @@
             <p>The world needs more intentional leaders, not more managers. Leaders who can guide others through uncertainty, not people who pretend certainty exists.</p>
             <div class="cta-buttons">
                 <a href="#books" class="btn btn-primary">Get the Books</a>
-                <a href="https://www.circleleadershipglobal.com/100-workshop" class="btn btn-secondary" target="_blank">Join Business Builders Club</a>
-                <a href="#workshop" class="btn btn-secondary">Attend Workshop</a>
+                <a href="#workshop" class="btn btn-secondary">Join a Workshop</a>
+                <a href="https://www.circleleadership.global" class="btn btn-secondary" target="_blank">Circle Leadership</a>
             </div>
             <div class="hashtag">#LEADONPURPOSE</div>
         </div>
@@ -1452,8 +1570,8 @@
                 <h4>Connect</h4>
                 <ul>
                     <li><a href="https://gavinkeeley.com" target="_blank">gavinkeeley.com</a></li>
-                    <li><a href="https://www.circleleadershipglobal.com" target="_blank">Circle Leadership Global</a></li>
-                    <li><a href="https://www.linkedin.com/in/keeleyg" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://www.circleleadership.global" target="_blank">Circle Leadership Global</a></li>
+                    <li><a href="https://www.linkedin.com/in/gavinkeeley/" target="_blank">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
