@@ -629,6 +629,49 @@
             color: var(--black);
         }
 
+        /* Culture Is Hard - companion book cover placeholder (until cover art exists) */
+        .cih-cover {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 2 / 3;
+            margin: 0 auto;
+            background: var(--black);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.6rem 1.3rem;
+            text-align: left;
+            box-shadow:
+                -10px 10px 30px rgba(0,0,0,0.2),
+                -3px 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .cih-cover .k {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--yellow);
+        }
+
+        .cih-cover .t {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 2rem;
+            line-height: 0.95;
+            color: var(--white);
+            margin: auto 0;
+        }
+
+        .cih-cover .a {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--yellow);
+        }
+
         /* Workshop Section */
         .workshop-section {
             background: var(--black);
@@ -1369,7 +1412,7 @@
         <div class="section-header">
             <span class="section-eyebrow">The Books</span>
             <h2 class="section-title">Your Path to Intentional Leadership</h2>
-            <p class="section-subtitle">Two resources designed to work together: the philosophy and the practice.</p>
+            <p class="section-subtitle">The leadership philosophy, the practical playbook, and the companion book on culture.</p>
         </div>
 
         <div class="book-showcase">
@@ -1410,6 +1453,30 @@
                 </ul>
                 <div class="buy-links">
                     <span class="coming-soon-badge">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-showcase">
+            <div class="book-image">
+                <div class="cih-cover" role="img" aria-label="Culture Is Hard by Gavin Keeley">
+                    <span class="k">Vidimus &middot; 2026</span>
+                    <span class="t">Culture<br>Is Hard</span>
+                    <span class="a">Gavin Keeley</span>
+                </div>
+            </div>
+            <div class="book-details">
+                <h3>Culture Is Hard</h3>
+                <p class="book-subtitle">The Companion to Lead On Purpose</p>
+                <p>Where Lead On Purpose is about the leader, Culture Is Hard is about the organisation: what happens when one person's intention has to become ten thousand people's ordinary Tuesday. Culture is the residue of decisions, and residue does not lie.</p>
+                <ul class="book-features">
+                    <li>What culture actually is, beneath the posters and the programmes</li>
+                    <li>Why the people trained to govern culture cannot see it</li>
+                    <li>What it costs an organisation when culture fails</li>
+                    <li>How AI and the courts have changed the stakes for every leader</li>
+                </ul>
+                <div class="buy-links">
+                    <a href="https://culture-ishard.com" class="buy-btn amazon" target="_blank" rel="noopener">Read more at culture-ishard.com →</a>
                 </div>
             </div>
         </div>
@@ -1571,6 +1638,7 @@
             <div class="footer-links">
                 <h4>Connect</h4>
                 <ul>
+                    <li><a href="https://culture-ishard.com" target="_blank">Culture Is Hard</a></li>
                     <li><a href="https://gavinkeeley.com" target="_blank">gavinkeeley.com</a></li>
                     <li><a href="https://www.circleleadershipglobal.com" target="_blank">Circle Leadership Global</a></li>
                     <li><a href="https://www.linkedin.com/in/keeleyg" target="_blank">LinkedIn</a></li>
