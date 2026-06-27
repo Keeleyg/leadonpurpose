@@ -629,132 +629,6 @@
             color: var(--black);
         }
 
-        /* Workshop Section */
-        .workshop-section {
-            background: var(--black);
-            color: var(--white);
-            padding: 6rem 4rem;
-        }
-
-        .workshop-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .workshop-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .workshop-badge {
-            display: inline-block;
-            background: var(--yellow);
-            color: var(--black);
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.5rem 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .workshop-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .workshop-header p {
-            font-family: 'Libre Baskerville', serif;
-            font-style: italic;
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.7);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .workshop-details {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .workshop-detail {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .workshop-detail .icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .workshop-detail .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 0.3rem;
-        }
-
-        .workshop-detail .value {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .workshop-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .workshop-feature {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .workshop-feature .check {
-            color: var(--yellow);
-            font-size: 1.2rem;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .workshop-feature p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.85);
-        }
-
-        .workshop-feature strong {
-            color: var(--white);
-        }
-
-        .workshop-cta {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .workshop-price {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .workshop-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.6);
-        }
-
         /* Author Section */
         .author-section {
             padding: 6rem 4rem;
@@ -1241,14 +1115,6 @@
                 padding: 4rem 1.5rem;
             }
 
-            .workshop-details {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .workshop-features {
-                grid-template-columns: 1fr;
-            }
-
             .author-stats {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -1277,7 +1143,6 @@
         <ul class="nav-links">
             <li><a href="#manifesto">Manifesto</a></li>
             <li><a href="#books">Books</a></li>
-            <li><a href="#workshop">Workshop</a></li>
             <li><a href="#author">About</a></li>
             <li><a href="#cta" class="nav-cta">Get Started</a></li>
         </ul>
@@ -1292,7 +1157,6 @@
                 <p class="hero-philosophy">Evidence First. Values Always. Dogma Never.</p>
                 <div class="cta-group">
                     <a href="#books" class="btn btn-primary">Get the Books</a>
-                    <a href="#workshop" class="btn btn-secondary">Join a Workshop</a>
                 </div>
             </div>
             <div class="hero-book">
@@ -1434,7 +1298,7 @@
         <div class="section-header">
             <span class="section-eyebrow">The Books</span>
             <h2 class="section-title">Your Path to Intentional Leadership</h2>
-            <p class="section-subtitle">The leadership philosophy, the practical playbook, and the companion book on culture.</p>
+            <p class="section-subtitle">The leadership philosophy and the companion book on culture.</p>
         </div>
 
         <div class="book-showcase">
@@ -1459,27 +1323,6 @@
         </div>
 
         <div class="book-showcase reverse">
-            <div class="book-image">
-                <img src="playbook-cover.png" alt="Lead On Purpose Leader's Playbook by Gavin Keeley">
-            </div>
-            <div class="book-details">
-                <h3>Leader's Playbook</h3>
-                <p class="book-subtitle">Practical Tools for Intentional Leadership</p>
-                <p>The companion guide that turns philosophy into practice. Five practical approaches explained in narrative form—your reference manual for after you've read the book and attended the workshop. The what, why, and how of each approach, ready for immediate application.</p>
-                <ul class="book-features">
-                    <li>CLEAR approach for effective delegation</li>
-                    <li>LEARN model for better decision-making</li>
-                    <li>COACH approach for developing your people</li>
-                    <li>Practical scenarios and worked examples</li>
-                    <li>Quick reference guides for daily use</li>
-                </ul>
-                <div class="buy-links">
-                    <span class="coming-soon-badge">Coming Soon</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="book-showcase">
             <div class="book-image">
                 <img src="culture-is-hard-cover.png" alt="Culture Is Hard by Gavin Keeley">
             </div>
@@ -1545,75 +1388,6 @@
         </div>
     </section>
 
-    <section class="workshop-section" id="workshop">
-        <div class="workshop-content">
-            <div class="workshop-header">
-                <span class="workshop-badge">Half-Day Workshop</span>
-                <h2>Lead On Purpose Workshop</h2>
-                <p>Stop reading about leadership. Start practicing it. This isn't a lecture—it's hands-on training with the approaches from the book.</p>
-            </div>
-
-            <div class="workshop-details">
-                <div class="workshop-detail">
-                    <div class="icon">⏱️</div>
-                    <div class="label">Duration</div>
-                    <div class="value">3.5 Hours</div>
-                </div>
-                <div class="workshop-detail">
-                    <div class="icon">👥</div>
-                    <div class="label">Group Size</div>
-                    <div class="value">Max 24</div>
-                </div>
-                <div class="workshop-detail">
-                    <div class="icon">📍</div>
-                    <div class="label">Location</div>
-                    <div class="value">Sunshine Coast</div>
-                </div>
-                <div class="workshop-detail">
-                    <div class="icon">📖</div>
-                    <div class="label">Includes</div>
-                    <div class="value">Both Books</div>
-                </div>
-            </div>
-
-            <div class="workshop-features">
-                <div class="workshop-feature">
-                    <span class="check">✓</span>
-                    <p><strong>CLEAR Approach</strong> — Master the art of delegation that actually works. Know when to direct, coach, or step back entirely.</p>
-                </div>
-                <div class="workshop-feature">
-                    <span class="check">✓</span>
-                    <p><strong>LEARN Model</strong> — Make better decisions faster. A structured approach to judgment when you don't have all the information.</p>
-                </div>
-                <div class="workshop-feature">
-                    <span class="check">✓</span>
-                    <p><strong>COACH Approach</strong> — Develop your people without doing their thinking for them. Build capability, not dependency.</p>
-                </div>
-                <div class="workshop-feature">
-                    <span class="check">✓</span>
-                    <p><strong>Hands-On Practice</strong> — Roughly half the workshop is active practice. Table exercises, paired role-plays, and real scenarios.</p>
-                </div>
-                <div class="workshop-feature">
-                    <span class="check">✓</span>
-                    <p><strong>Both Books Included</strong> — Take home physical copies of "Lead On Purpose" and the "Leader's Playbook" as your ongoing reference library.</p>
-                </div>
-                <div class="workshop-feature">
-                    <span class="check">✓</span>
-                    <p><strong>30-Day Support</strong> — Email access after the workshop for questions as you implement in the real world.</p>
-                </div>
-            </div>
-
-            <div class="workshop-cta">
-                <p class="workshop-price">$297 AUD <span>per participant | GST inclusive</span></p>
-                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 650px; margin-left: auto; margin-right: auto;">This workshop is designed for business builders—whether you're solo, running a team of 20, or a third-generation family business owner. First-time founder or 40-year veteran, if you're building something that needs to evolve in a VUCA world, this is for you.</p>
-                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 650px; margin-left: auto; margin-right: auto;">Fair warning: you'll get far more value from this workshop if you've joined the Business Builders Club and completed the onboarding first. The foundations we build there make the practice here more relevant and immediately useful. Not required, just honest advice about maximizing your $297 investment.</p>
-                <p style="margin-bottom: 2rem; font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 650px; margin-left: auto; margin-right: auto;"><strong>Includes:</strong> Physical copies of both "Lead On Purpose" and the "Leader's Playbook" plus 30-day email support. The price reflects value delivery, not guru enrichment.</p>
-                <a href="#" class="btn btn-yellow">Reserve Your Spot</a>
-                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6);">Team booking? Contact us for group rates (4+ participants)</p>
-            </div>
-        </div>
-    </section>
-
     <section class="author-section" id="author">
         <div class="author-content">
             <div class="author-image">
@@ -1657,7 +1431,6 @@
             <div class="cta-buttons">
                 <a href="#books" class="btn btn-primary">Get the Books</a>
                 <a href="https://www.circleleadershipglobal.com/100-workshop" class="btn btn-secondary" target="_blank">Join Business Builders Club</a>
-                <a href="#workshop" class="btn btn-secondary">Attend Workshop</a>
             </div>
             <div class="hashtag">#LEADONPURPOSE</div>
         </div>
@@ -1675,7 +1448,6 @@
                     <li><a href="#manifesto">The Manifesto</a></li>
                     <li><a href="#principles">Core Principles</a></li>
                     <li><a href="#books">Books</a></li>
-                    <li><a href="#workshop">Workshop</a></li>
                 </ul>
             </div>
             <div class="footer-links">
